@@ -23,15 +23,19 @@ body, #root {
   align-items: center;
   display: flex;
 }
+
 .flx {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.m-0x { margin: 0px; }
+.o-7x:hover { opacity: .7; }
 .p-5x { padding: 5px; }
 .p-10x { padding: 10px; }
 .w-30x { width: 30px; }
+.w-50x { width: 50px; }
 .w-100x { width: 100px; }
 .w-200x { width: 200px; }
 
@@ -105,4 +109,10 @@ body, #root {
 .nav-user-img {
   border-radius: 50px;
   width: 50px;
+}
+
+/* Logo bar */
+.div-logo {
+  width: 100%;
+  display: flex;
 }
