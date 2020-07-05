@@ -1,0 +1,108 @@
+@import url("font-montserrat.css");
+
+* {
+  font-family: 'Montserrat Alternates', sans-serif !important;
+  color: white;
+}
+
+html, body {
+  height: 100%;
+  background-color: #363747 !important;
+}
+
+body, #root {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.center, h1, h2, h3, h4, h5 { 
+  text-align: center ; 
+  align-items: center;
+  display: flex;
+}
+.flx {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.p-5x { padding: 5px; }
+.p-10x { padding: 10px; }
+.w-30x { width: 30px; }
+.w-100x { width: 100px; }
+.w-200x { width: 200px; }
+
+.logo {
+  border-radius: 130px;
+  background: white;
+  padding: 20px;
+  overflow: hidden;
+}
+.logo img {
+  background: white;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-rnd-i {
+  padding: 10px !important;
+  border: none !important;
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  text-transform: capitalize !important;
+  background-color: #282831 !important;
+  font-size: .8rem !important;
+}
+
+.btn-rnd-i:focus, .btn-rnd-i:focus * {
+  background-color: #575767 !important;
+  outline: none;
+  opacity: .7;
+}
+
+.btn-rnd-i .MuiTouchRipple-root, .btn-rnd-i:hover .MuiTouchRipple-root {
+  background: none !important;
+}
+
+.MuiButton-root {
+  transition: none !important;
+}
+
+.btn-rnd-i:hover, .btn-rnd-i:hover * {
+  background-color: #575767 !important;
+}
+
+.btn-rnd-i div {
+  display: flex;
+  align-items: center;
+}
+
+/* Nav */
+.MuiPaper-root {
+  background: #282831 !important;
+}
+
+/* Toobal */
+.toolbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logout {
+  padding: 0 !important;
+  min-width: 0 !important;
+}
+
+.nav-user-img {
+  border-radius: 50px;
+  width: 50px;
+}
