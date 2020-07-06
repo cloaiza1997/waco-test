@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useGlobal } from 'reactn';
 import { useHistory } from "react-router-dom";
+import $ from "jquery";
 // Class
 import Dashboard from "./views/Dashboard";
 import Profile from "./views/Profile";
@@ -9,7 +10,6 @@ import UserList from "./views/UserList";
 // Components
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Button from "@material-ui/core/Button";
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
@@ -66,10 +66,12 @@ export default function Home() {
 
   const handleDrawerOpen = () => {
     setOpen(true);
+    $("#sign").show();
   };
-
+  
   const handleDrawerClose = () => {
     setOpen(false);
+    $("#sign").hide();
   };
   /**
    * Cierre de sesión
@@ -107,9 +109,9 @@ export default function Home() {
             <Typography variant="h6" noWrap>
               Gestión de Usuarios
             </Typography>
-            <Button className="logout" onClick={logout} title="Cerrar Sesión">
+            <IconButton onClick={logout} title="Cerrar Sesión">
               <PowerSettingsNewTwoToneIcon/>
-            </Button>
+            </IconButton>
           </div>
         </Toolbar>
       </AppBar>
@@ -129,7 +131,7 @@ export default function Home() {
         {/* Cabecera navegación */}
         <div className={classes.toolbar}>
           <div className="div-logo">
-            <a href="https://wacoservices.com/" target="_blank" className="o-7x" title="Ir a la página de Waco Services">
+            <a href="https://wacoservices.com/" target="_blank" rel="noopener noreferrer" className="o-7x" title="Ir a la página de Waco Services">
               <img className="w-50x" src={ require("../../assets/img/logo-small.png") } alt="Waco Services"/>
             </a>
             <span className="p-5x"></span>
@@ -146,24 +148,34 @@ export default function Home() {
               <ListItemIcon>
                 <img className="nav-user-img" src={globalState.user.photoURL} alt={globalState.user.displayName}/>
               </ListItemIcon>
+              <span className="p-10x"></span>
               <ListItemText primary={globalState.user.displayName} />
           </ListItem>
         </List>
         <Divider />
         <List>
             <ListItem button title="Ir al Inicio" onClick={() => changeView()}>
-              <ListItemIcon><HomeTwoToneIcon/></ListItemIcon>
+              <ListItemIcon><HomeTwoToneIcon className="f-2_5r"/></ListItemIcon>
+              <span className="p-10x"></span>
               <ListItemText primary="Inicio" />
             </ListItem>
             <ListItem button title="Crear un Usuario" onClick={() => changeView("create")}>
-              <ListItemIcon><PersonAddTwoToneIcon/></ListItemIcon>
+              <ListItemIcon><PersonAddTwoToneIcon className="f-2_5r"/></ListItemIcon>
+              <span className="p-10x"></span>
               <ListItemText primary="Crear Usuario" />
             </ListItem>
             <ListItem button title="Ver Listado de Usuario" onClick={() => changeView("list")}>
-              <ListItemIcon><PeopleAltTwoToneIcon/></ListItemIcon>
+              <ListItemIcon><PeopleAltTwoToneIcon className="f-2_5r"/></ListItemIcon>
+              <span className="p-10x"></span>
               <ListItemText primary="Listar Usuarios" />
             </ListItem>
         </List>
+        <footer className="footer center p-10x">
+          <div>
+            <span id="sign" hidden={true}>Desarrollado por Cristian Loaiza</span>
+            <span>&copy; 2020</span>
+            </div>
+        </footer>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />

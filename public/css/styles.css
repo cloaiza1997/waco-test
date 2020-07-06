@@ -8,6 +8,7 @@
 html, body {
   height: 100%;
   background-color: #363747 !important;
+  margin: 0;
 }
 
 body, #root {
@@ -24,12 +25,18 @@ body, #root {
   display: flex;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .flx {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+.f-2_5r { font-size: 2.5rem !important; }
 .m-0x { margin: 0px; }
 .o-7x:hover { opacity: .7; }
 .p-5x { padding: 5px; }
@@ -38,6 +45,7 @@ body, #root {
 .w-50x { width: 50px; }
 .w-100x { width: 100px; }
 .w-200x { width: 200px; }
+.w-100 { width: 100% !important; }
 
 .logo {
   border-radius: 130px;
@@ -94,11 +102,41 @@ body, #root {
   background: #282831 !important;
 }
 
+/* List */
+.MuiListItemIcon-root {
+  min-width: 20px !important;
+  justify-content: center !important;
+}
+
+.MuiListItem-gutters {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+.MuiListItem-button:hover, .MuiIconButton-root:hover {
+  background-color: #19191d !important;
+}
+
+.MuiListItem-button:hover * {
+  font-weight: bold !important;
+}
+
+@media (min-width: 600px){
+  .makeStyles-drawerClose-8 {
+    width: 58px !important;
+  }
+
+  .MuiToolbar-gutters {
+    padding-left: 16px !important;
+  }
+}
+
 /* Toobal */
 .toolbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logout {
@@ -108,7 +146,7 @@ body, #root {
 
 .nav-user-img {
   border-radius: 50px;
-  width: 50px;
+  width: 40px;
 }
 
 /* Logo bar */
@@ -141,4 +179,24 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+/* Notificaciones */
+.Toastify__toast--success {
+  background: #2a8c48 !important;
+}
+
+.footer {
+  bottom: 0px;
+  position: absolute;
+  font-size: 11px;
+}
+
+.footer, .footer div {
+  width: 100%;
+}
+
+.login-footer {
+  bottom: 0;
+  position: absolute;
 }
