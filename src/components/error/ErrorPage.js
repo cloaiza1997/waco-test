@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 
 import ArrowBackTwoToneIcon from '@material-ui/icons/ArrowBackTwoTone';
-import ErrorTwoToneIcon from '@material-ui/icons/ErrorTwoTone';
 
 export default function ErrorPage() {
   return(
@@ -15,7 +14,7 @@ export default function ErrorPage() {
         className="w-200x"
       />
       
-      <h2>Ups... ¡No encontramos lo que buscas! &nbsp; <ErrorTwoToneIcon/></h2>
+      <h2>Ups... ¡No encontramos lo que buscas!</h2>
 
       <Button
         component={ Link }

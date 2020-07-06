@@ -57,7 +57,7 @@ export default function UserCreate() {
   }
 
   return (
-    <div className="flx">
+    <div className="flx div-usr-create">
       <div>
         <img
             src={require("./../../../assets/img/user_1.png")}
