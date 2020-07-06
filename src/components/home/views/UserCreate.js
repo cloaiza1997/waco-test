@@ -58,6 +58,23 @@ export default function UserCreate() {
 
   return (
     <div className="flx">
+      <div>
+        <img
+            src={require("./../../../assets/img/user_1.png")}
+            alt="Usuario"
+            className="w-50x"
+          />
+          <img
+            src={require("./../../../assets/img/user_3.png")}
+            alt="Usuario"
+            className="w-50x"
+          />
+          <img
+            src={require("./../../../assets/img/user_2.png")}
+            alt="Usuario"
+            className="w-50x"
+          />
+      </div>
       <h2>Creación de Usuario</h2>
       <br />
       <div className="flex">
