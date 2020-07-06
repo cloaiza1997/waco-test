@@ -1,14 +1,10 @@
 import React from 'react';
-import { setGlobal } from 'reactn';
 import ReactDOM from 'react-dom';
+import { setGlobal } from 'reactn';
 import * as serviceWorker from './serviceWorker';
 
-
-import './index.css';
-
-import Router from "./components/router/Router";
-// import Location from "./components/router/Location";
 import GlobalState from './components/config/GlobalState';
+import Router from "./components/router/Router";
 
 setGlobal(GlobalState);
 

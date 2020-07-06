@@ -10,13 +10,10 @@ function Router () {
 
   const [ globalState ] = useGlobal();
 
-  // console.log(globalState);
-
   let user_login = {
     home: ""
   };
 
-  // console.log(globalState["user"]);
   if(globalState.user != null) {
     user_login.home = <Route path="/home" component={Home} />;
   }

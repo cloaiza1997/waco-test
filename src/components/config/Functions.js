@@ -2,7 +2,6 @@ import { Component, setGlobal } from "reactn";
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
-// import { useLocation } from "react-router-dom";
 
 export default class Function extends Component {
     /**
@@ -15,9 +14,12 @@ export default class Function extends Component {
         fb: firebase
       });
     }
-
+    /**
+     * Obtiene el usuario almacenado en el localStorage y lo agrega al estado global
+     */
     getUser() {
       let user = localStorage.getItem("user");
+      // Si existe el usuario lo parsea y agrega al estado global
       user = user != null ? JSON.parse(user) : null;
       setGlobal({ user });
     }
