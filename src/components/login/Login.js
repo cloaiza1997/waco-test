@@ -5,6 +5,7 @@ export default function Login() {
 
   const [globalState, setGlobalState] = useGlobal();
   const history = useHistory();
+  // Render
   // + Usuario logueado: Direcciona al home | - Usuario no logueado: Muestra el index
   if (globalState.user != null) {
     return <Redirect to="/home" />

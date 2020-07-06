@@ -14,6 +14,14 @@ export default class Function extends Component {
         fb: firebase
       });
     }
+    getDate() {
+      let date = new Date();
+      let month = date.getMonth() + 1; 
+      month = month < 10 ? "0" + month : month;
+      let day = date.getDate();
+      day = day < 10 ? "0" + day : day;
+      return `${date.getFullYear()}-${month}-${day}`;
+    }
     /**
      * Obtiene el usuario almacenado en el localStorage y lo agrega al estado global
      */

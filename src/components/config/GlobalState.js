@@ -13,5 +13,5 @@ export default {
   }, // Firebase configuración
   fb_data_base: null, // Firebase base de datos Functions.js init_firebase()
   fb: null, // Firebase instancia, se inicializa en la clase Functions.js init_firebase()
-  user: null,
+  user: null, // Objeto del usuario logueado de google
 };

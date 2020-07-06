@@ -116,3 +116,29 @@ body, #root {
   width: 100%;
   display: flex;
 }
+
+/* Inputs */
+.input {
+  width: 100% !important;
+}
+
+.input * {
+  color: white !important;
+  border-color: white !important;
+}
+
+.input-error * {
+  color: red !important;
+  border-color: red !important;
+}
+
+/* Input number */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
