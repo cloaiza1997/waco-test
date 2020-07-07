@@ -218,7 +218,8 @@ input[type=number] {
 
 .makeStyles-highlight-16 {
   color: #ff0000 !important;
-  background-color: #ffffff !important;
+  background-color: #dadada !important;
+  font-weight: bold !important;
 }
 
 @media (max-width: 850px) {
@@ -247,6 +248,10 @@ input[type=number] {
 
 @media(max-height: 325px) {
   footer { display: none !important; }
+}
+
+@media(max-width: 460px) {
+  .lbl-hide { display: flex !important; }
 }
 
 @media(max-height: 600px) {

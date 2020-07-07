@@ -151,7 +151,7 @@ const EnhancedTableToolbar = (props) => {
       )}
 
       {numSelected > 0 ? (
-        <Tooltip title="Eliminar Registro(s) Seleccionado(s)">
+        <Tooltip title="Eliminar Registro(s) Seleccionado(s)" onClick={() => props.deleteItems(props.list)}>
           <IconButton aria-label="delete" className="c-gray">
             <DeleteIcon />
           </IconButton>
@@ -160,6 +160,8 @@ const EnhancedTableToolbar = (props) => {
     </Toolbar>
   );
 };
+
+
 
 EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
@@ -196,12 +198,14 @@ const useStyles = makeStyles((theme) => ({
 export default function EnhancedTable(props) {
   const classes = useStyles();
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [orderBy, setOrderBy] = React.useState('id');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const [rows] = React.useState(props.data);
+  const [rows, setRows] = React.useState(props.data);
+  
+  console.log(rows);
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -211,19 +215,20 @@ export default function EnhancedTable(props) {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = rows.map((n) => n.name);
+      const newSelecteds = rows.map((n) => n.id);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, id_row) => {
+    const selectedIndex = selected.indexOf(id_row);
+
     let newSelected = [];
 
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, id_row);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -234,7 +239,6 @@ export default function EnhancedTable(props) {
         selected.slice(selectedIndex + 1),
       );
     }
-
     setSelected(newSelected);
   };
 
@@ -254,7 +258,7 @@ export default function EnhancedTable(props) {
   return (
     <div className={classes.root}>
       <Paper className={classes.paper}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} list={selected} deleteItems={props.deleteItems}/>
         <TableContainer>
           <Table
             className={classes.table}
@@ -275,17 +279,16 @@ export default function EnhancedTable(props) {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  const isItemSelected = isSelected(row.name);
+                  const isItemSelected = isSelected(row.id);
                   const labelId = `enhanced-table-checkbox-${index}`;
-
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      onClick={(event) => handleClick(event, row.id)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row.id}
                       selected={isItemSelected}
                       className="row-tbl"
                     >
@@ -300,7 +303,7 @@ export default function EnhancedTable(props) {
                         {row.name}
                       </TableCell>
                       <TableCell component="th" scope="row" padding="none" align="center">
-                        <Button>
+                        <Button onClick={() => props.edit(row.id)}>
                           <EditIcon/>
                         </Button>
                       </TableCell>

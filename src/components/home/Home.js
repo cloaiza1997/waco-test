@@ -6,6 +6,7 @@ import $ from "jquery";
 import Dashboard from "./views/Dashboard";
 import Profile from "./views/Profile";
 import UserCreate from "./views/UserCreate";
+import UserEdit from "./views/UserEdit";
 import UserList from "./views/UserList";
 // Components
 import { makeStyles, useTheme } from '@material-ui/core/styles';
@@ -34,7 +35,7 @@ export default function Home() {
   // Constants
   const [globalState, setGlobalState] = useGlobal(); // Estado global
   const [open, setOpen] = React.useState(false);
-  const [view, setView] = useState(<UserList/>); // Estado local, por defecto carga una vista
+  const [view, setView] = useState(<Dashboard/>); // Estado local, por defecto carga una vista
   const classes = useStyles();
   const history = useHistory(); // Historial
   const theme = useTheme();
@@ -50,8 +51,11 @@ export default function Home() {
       case "create":
         component_view = <UserCreate/>
       break;
+      case "edit":
+        component_view = <UserEdit changeView={changeView}/>
+      break;
       case "list":
-        component_view = <UserList/>
+        component_view = <UserList changeView={changeView}/>
       break;
       case "profile":
         component_view = <Profile/>
