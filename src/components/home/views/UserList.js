@@ -17,7 +17,6 @@ export default function UserList(props) {
     
     const deleteItems = (items) => {
       items.map(id => db.child(id).remove());
-      props.changeView("list");
     };  
 
     const edit = (id) => {
@@ -33,7 +32,6 @@ export default function UserList(props) {
           name: element.name
         });
       });
-
       setTable(null);
       setTable(<Table data={list} deleteItems={deleteItems} edit={edit}/>);
       setDisplay(false);

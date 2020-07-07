@@ -41,6 +41,7 @@ body, #root {
 .f-12x { font-size: 12px !important;}
 .f-2_5r { font-size: 2.5rem !important; }
 .m-0x { margin: 0px; }
+.m-20x { margin: 20px; }
 .o-7x:hover { opacity: .7; }
 .p-5x { padding: 5px; }
 .p-10x { padding: 10px; }

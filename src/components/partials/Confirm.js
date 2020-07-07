@@ -20,11 +20,7 @@ export default function Confirm(props) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            <h4>{ props.message }</h4>
-          </DialogContentText>
-        </DialogContent>
+        <h4 className="m-20x">{ props.message }</h4>
         <DialogActions>
           <Button onClick={handleClose} color="primary" className="btn-rnd-i">
             Cancelar

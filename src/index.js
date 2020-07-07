@@ -12,9 +12,7 @@ GlobalState.func.initFirebase();
 GlobalState.func.getUser();
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router />
-  </React.StrictMode>
   ,
   document.getElementById('root')
 );

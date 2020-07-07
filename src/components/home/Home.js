@@ -35,7 +35,7 @@ export default function Home() {
   // Constants
   const [globalState, setGlobalState] = useGlobal(); // Estado global
   const [open, setOpen] = React.useState(false);
-  const [view, setView] = useState(<UserCreate/>); // Estado local, por defecto carga una vista
+  const [view, setView] = useState(<Dashboard/>); // Estado local, por defecto carga una vista
   const classes = useStyles();
   const history = useHistory(); // Historial
   const theme = useTheme();
