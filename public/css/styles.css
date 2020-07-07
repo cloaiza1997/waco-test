@@ -270,3 +270,45 @@ input[type=number] {
 .MuiTable-root {
   min-width: 0 !important;
 }
+
+.profile-logo {
+  border-radius: 100px;
+  width: 170px;
+}
+
+.dash-user-img {
+  border-radius: 50px;
+  width: 50px;
+  margin: 5px;
+  cursor: pointer;
+  border: 2px solid white;
+}
+
+.dash-div {
+  padding: 10px;
+  background: #282831;
+  border-radius: 10px;
+}
+
+.dash-div h5 {
+  margin: 0px;
+}
+
+.dash-div div {
+  flex-wrap: wrap;
+}
+
+.dash-user-img:hover {
+  opacity: .7 ;
+  border: 2px solid #8c0c0c;
+}
+
+.dash-div-2 {
+  padding: 10px;
+  background: #b7b7b8;
+  border-radius: 10px;
+}
+
+.dash-div-2 h3, .dash-div-2 h1 {
+  color: #222;
+}

@@ -10,6 +10,8 @@ import DateRangeTwoToneIcon from '@material-ui/icons/DateRangeTwoTone';
 import EmailTwoToneIcon from '@material-ui/icons/EmailTwoTone';
 import PermIdentityTwoToneIcon from '@material-ui/icons/PermIdentityTwoTone';
 
+import Confirm from "./../../partials/Confirm";
+
 export default function UserCreate() {
 
   const [globalState] = useGlobal();
@@ -19,16 +21,12 @@ export default function UserCreate() {
   const [email, setEmail] = useState("");
   const [id, setId] = useState("");
   const [name, setName] = useState("");
+  const [open, setOpen] = useState(false);
   // Functions
   /**
    * Agrega un usuario en firebase
    */
   const addUser = () => {
-    // Extracción de métodos de validación de datos
-    const validateEmail = globalState.func.validateEmail;
-    const validateText = globalState.func.validateText;
-    // + Datos correctos | - Datos incorrectos
-    if (validateText(id) && validateText(name) && validateEmail(email)) {
       // Consulta si ya existe un objeto en la base de datos con el id
       db.child(id).once("value", snap => {
         // + Id no existe, se inserta el objeto | - Existe, se muestra notificación
@@ -50,7 +48,15 @@ export default function UserCreate() {
       });
       
       db.off();
+  }
 
+  const openModal = () => {
+    // Extracción de métodos de validación de datos
+    const validateEmail = globalState.func.validateEmail;
+    const validateText = globalState.func.validateText;
+    // + Datos correctos | - Datos incorrectos
+    if (validateText(id) && validateText(name) && validateEmail(email)) {
+      setOpen(true);
     } else {
       showNotify().error("Por favor diligenciar todos los campos");
     }
@@ -129,7 +135,7 @@ export default function UserCreate() {
         />
       </div>
       <br />
-      <button onClick={addUser} className="btn-rnd-i" title="Crear Usuario">
+      <button onClick={openModal} className="btn-rnd-i" title="Crear Usuario">
         <div>
           <img
             src={require("./../../../assets/img/save.png")}
@@ -142,6 +148,7 @@ export default function UserCreate() {
       </button>
 
       <Notify />
+      <Confirm open={open} setOpen={setOpen} action={addUser} message="¿Confirma la creación del usuario?"/>
     </div>
   );
 }

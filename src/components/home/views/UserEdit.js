@@ -12,15 +12,17 @@ import DateRangeTwoToneIcon from '@material-ui/icons/DateRangeTwoTone';
 import EmailTwoToneIcon from '@material-ui/icons/EmailTwoTone';
 import PermIdentityTwoToneIcon from '@material-ui/icons/PermIdentityTwoTone';
 
+import Confirm from "./../../partials/Confirm";
+
 export default function UserEdit(props) {
 
   const [globalState] = useGlobal();
   const [db] = useState(globalState.func.initDataBase("users"));
   const [id] = useState(globalState.user_edit_id);
   const [birth, setBirth] = useState("");
-  const [date] = useState(globalState.func.getDate());
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     db.child(id).once("value", snap => {
@@ -37,24 +39,27 @@ export default function UserEdit(props) {
    * Agrega un usuario en firebase
    */
   const editUser = () => {
+    db.child(id).set({
+      name: name,
+      email: email,
+      birth: birth,
+    });
+    showNotify().success("Usuario editado correctamente");
+  
+    db.off();
+
+    setTimeout(() => {
+      props.changeView("list");
+    }, 2000);
+  }
+
+  const openModal = () => {
     // Extracción de métodos de validación de datos
     const validateEmail = globalState.func.validateEmail;
     const validateText = globalState.func.validateText;
     // + Datos correctos | - Datos incorrectos
     if (validateText(id) && validateText(name) && validateEmail(email)) {
-
-      db.child(id).set({
-        name: name,
-        email: email,
-        birth: birth,
-      });
-      showNotify().success("Usuario editado correctamente");
-    
-      db.off();
-
-      setTimeout(() => {
-        props.changeView("list");
-      }, 2000);
+      setOpen(true);
     } else {
       showNotify().error("Por favor diligenciar todos los campos");
     }
@@ -132,7 +137,7 @@ export default function UserEdit(props) {
         />
       </div>
       <br />
-      <button onClick={editUser} className="btn-rnd-i" title="Editar Usuario">
+      <button onClick={openModal} className="btn-rnd-i" title="Editar Usuario">
         <div>
           <img
             src={require("./../../../assets/img/register.png")}
@@ -145,6 +150,7 @@ export default function UserEdit(props) {
       </button>
 
       <Notify />
+      <Confirm open={open} setOpen={setOpen} action={editUser} message="¿Confirma la edición del usuario?"/>
     </div>
   );
 }
