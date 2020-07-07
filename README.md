@@ -7,9 +7,9 @@ Prueba Técnica Desarrollada por Cristian Loaiza
 
 Observaciones:
 
-• En el home(Dashboard) se muestra un contador de usuarios registrados para el CRUD y el listado de las personas que se han logueado en la aplicación.
-• Al ser desarrollada con firebase toda la información se encuentr en tiempo real.
-• Almacena los datos del logueo en el local storage.
+1) En el home(Dashboard) se muestra un contador de usuarios registrados para el CRUD y el listado de las personas que se han logueado en la aplicación.
+2) Al ser desarrollada con firebase toda la información se encuentra en tiempo real.
+3) Almacena los datos del logueo en el local storage, para mantener la sesión de usuario.
 
 Cosas pendientes por terminar que no pude realizar debido al tiempo:
 
