@@ -127,7 +127,7 @@ body, #root {
 }
 
 @media (min-width: 600px){
-  .makeStyles-drawerClose-8 {
+  .makeStyles-drawerClose-8, .jss8 {
     width: 58px !important;
   }
 

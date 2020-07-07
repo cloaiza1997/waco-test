@@ -38,6 +38,7 @@ export default function Dashboard() {
   return (
     <div className="flx">
       <CircularProgress style={ display ? {} : { display: "none" } }/>
+      <h1>Inicio</h1>
       <div className="flx dash-div-2">
         <h3>Usuarios Registrados</h3>
         <h1>{ count }</h1>

@@ -83,7 +83,7 @@ export default function UserCreate() {
       </div>
       <h2>Creación de Usuario</h2>
       <br />
-      <div className="flex">
+      <div className="flex w-100">
         <AssignmentIndTwoToneIcon className="f-2_5r" />
         <TextField
           variant="outlined"
@@ -96,7 +96,7 @@ export default function UserCreate() {
         />
       </div>
       <br />
-      <div className="flex">
+      <div className="flex w-100">
         <PermIdentityTwoToneIcon className="f-2_5r" />
         <TextField
           variant="outlined"
@@ -109,7 +109,7 @@ export default function UserCreate() {
         />
       </div>
       <br />
-      <div className="flex">
+      <div className="flex w-100">
         <EmailTwoToneIcon className="f-2_5r" />
         <TextField
           variant="outlined"

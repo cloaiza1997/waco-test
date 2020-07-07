@@ -17,6 +17,7 @@ export default function UserList(props) {
     
     const deleteItems = (items) => {
       items.map(id => db.child(id).remove());
+      setTable(null);
     };  
 
     const edit = (id) => {
@@ -40,7 +41,7 @@ export default function UserList(props) {
   }, [db, props, setGlobalState]);
 
   return (
-    <div className="div-dataTable">
+    <div className="div-dataTable div-usr-create">
       <div className="flx center">
         <CircularProgress style={ display ? {} : { display: "none" } }/>
       </div>

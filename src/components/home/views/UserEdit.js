@@ -98,7 +98,7 @@ export default function UserEdit(props) {
       </div>
       <h2>Edición de Usuario ({id})</h2>
       <br />
-      <div className="flex">
+      <div className="flex w-100">
         <PermIdentityTwoToneIcon className="f-2_5r" />
         <TextField
           variant="outlined"
@@ -111,7 +111,7 @@ export default function UserEdit(props) {
         />
       </div>
       <br />
-      <div className="flex">
+      <div className="flex w-100">
         <EmailTwoToneIcon className="f-2_5r" />
         <TextField
           variant="outlined"
